@@ -4,5 +4,11 @@
       <h1>Welcome to DBC Overflow!</h1>
     </div>
   </div>
-  
+
+  <hr/>
+  <b>Top Questions:</b><br> 
+  <%@questions.each do |question| %>
+  <p><%=question.title %></p>
+  <%end%>
+
 </div>

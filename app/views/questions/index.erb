@@ -1,0 +1,7 @@
+<div class="container">
+
+<% @questions.each do |question| %>
+<hr/>
+<h4><a href="/questions/<%=question.id%>"><%= question.title %></a></h4>
+<% end %>
+</div>
