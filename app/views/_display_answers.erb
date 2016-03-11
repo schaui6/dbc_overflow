@@ -1,1 +1,4 @@
-<p><%= answer.description %></p>
+<p><% @answers.each do |answer| %></p>
+
+<%= answer.description %>
+<% end %>
