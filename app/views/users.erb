@@ -1,17 +1,47 @@
-<h1>Welcome, <%= @user.name %></h1>
+<div class="container">
 
-<article>
-  <% @questions.each do |question| %>
-    <a href="#">
-      <%= question.name %>
-    </a>
-  <% end %>
-</article>
+  <h1>Welcome, <%= @user.username %></h1>
+  <br>
 
-<article>
-  <% @answer.each do |answer|%>
-    <a href="#">
-      <% answer.questions.name %>
-    </a>
-  <% end %>
-</article>
+  <div class="question_asked">
+    <% if @questions.length > 0 %>
+      <div>
+        Questions you have asked:
+      </div>
+    <% else %>
+      <div>
+        You have not asked any questions.
+      </div>
+    <% end %>
+
+    <% @questions.each do |question| %>
+    <article>
+      <a href="/questions/<%= question.id %>">
+        <%= question.title %>
+      </a>
+      <% end %>
+    </article>
+  </div>
+
+  <hr>
+
+  <div class="answers_given">
+    <% if @questions_from_answer.length > 0 %>
+      <div>
+        Answers you have givien:
+      </div>
+        <% @questions_from_answer.each do |questions_from_ans|%>
+          <article>
+            <a href="/questions/<%= questions_from_ans.id %>">
+              <%= questions_from_ans.title %>
+            </a>
+          </article>
+        <% end %>
+      <% else %>
+    <div>
+      Please help out user's answer some questions.
+    </div>
+    <% end %>
+  </div>
+
+</div>

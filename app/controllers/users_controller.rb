@@ -1,12 +1,17 @@
 get '/users/:id' do
-  # if session[:id]
+  if session[:id]
+  # All user's questions
+
     @user = User.find_by(id: params[:id])
-    @questions = Question.where(poster_id: params[:id])
-    @answers = Answer.where(responder_id: params[:id])
+    @questions = Question.where(poster_id: @user.id)
+
+  # All questions from answers the user's responded to
+    questions_id = User.find(@user.id).answers.pluck('DISTINCT question_id')
+    @questions_from_answer = Question.find(questions_id)
     erb :users
-  # else
-    # erb :index
-  # end
+  else
+    erb :index
+  end
 end
 
 
