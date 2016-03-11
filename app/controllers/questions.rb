@@ -1,7 +1,3 @@
-# get '/questions' do
-#   #display a list of all questions
-# end
-
 get '/questions/new' do
   #return a from for creating a new question
   if request.xhr?
@@ -28,16 +24,11 @@ post '/questions' do
    end
 end
 
-# get '/question/:id' do
-#   #display a specific question
-
-# end
-
-# get '/question/:id/edit' do
-#   #edit a specific question
-
-# end
-
-# delete '/question/:id' do
-#   #delete a specific question
-# end
+get '/questions/:id' do
+  @question = Question.find(params[:id])
+  @q_comments = @question.comments
+  # binding.pry
+  @answers = @question.answers
+  # Look in app/views/index.erb
+  erb :'/questions/show'
+end
