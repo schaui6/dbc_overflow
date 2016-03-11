@@ -23,7 +23,7 @@ post '/questions' do
     end
    else
     #validations failed. show the error to the user
-    @errors = @chair.errors.full_message
+    @errors = @question.errors.full_message
     erb :'questions/new'
    end
 end
