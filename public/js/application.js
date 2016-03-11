@@ -4,9 +4,28 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+
+  $('#question-form').on('click', createQuestion);
+
   $(window).bind("pageshow", function(event) {
     if(event.originalEvent.persisted) {
       window.location.reload()
     }
   });
 });
+
+var createQuestion = function(event){
+  even.preventDefault();
+  var formData = $(this).serialize();
+  var formRoute = $(this).attr('action');
+  $.ajax({
+    url: formRoute,
+    type: 'post',
+    data: 'formData',
+  }).done(function(response){
+    console.log(response).fail(function(error){
+      console.log(error)
+    })
+  });
+
+};

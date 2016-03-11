@@ -10,7 +10,7 @@ end
 post '/questions' do
   #create a new question
   @question = Question.new(params[:question])
-   if @question.save? #validation succeeded
+   if @question.save #validation succeeded
     if request.xhr?
       erb :'show', locals: {question: @question}, layout: false
     else
