@@ -1,0 +1,11 @@
+<h1>Post Your Question</h1>
+
+<% if @errors %>
+  <%= erb :'questions/_errors', layout: false %>
+<% end %>
+<%= erb :'/questions/_create_question_form', layout: false %>
+
+
+
+
+
