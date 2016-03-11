@@ -1,0 +1,17 @@
+<h1>Welcome, <%= @user.name %></h1>
+
+<article>
+  <% @questions.each do |question| %>
+    <a href="#">
+      <%= question.name %>
+    </a>
+  <% end %>
+</article>
+
+<article>
+  <% @answer.each do |answer|%>
+    <a href="#">
+      <% answer.questions.name %>
+    </a>
+  <% end %>
+</article>
