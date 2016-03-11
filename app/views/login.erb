@@ -1,23 +1,27 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Open Modal
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Sign in</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+  <div class="modal fade" id="logIn" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #FF9900">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Log in</h4>
+        </div>
+        <div class="modal-body">
+          <form action='/login' method="POST">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input class="form-control" type="text" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-danger">Sign in</button>
+              <p class="text-center">Not a registered user? Please register <a class="register" href="/users/new">here</a>.</p>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
