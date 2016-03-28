@@ -1,0 +1,23 @@
+<div class="container">
+<h1>Post Your Question</h1>
+
+<% if @errors %>
+  <ul id="errors-list">
+<% @errors.each do |error_message| %>
+  <%= error_message %>
+<% end %>
+</ul>
+
+<% end %>
+<form id="question-form" action="/questions" method="post">
+  <input type="text" name="question[title]" placeholder="Title" value=""><br>
+  <textarea name="question[description]" rows="8" cols="50" placeholder="Type your question"></textarea><br>
+  <input type="submit" value="Post your question">
+</form>
+
+</div>
+
+
+
+
+
